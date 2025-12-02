@@ -1,10 +1,11 @@
-
+[1.html](https://github.com/user-attachments/files/23878423/1.html)
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="shortcut icon" href="c:\Users\Administrator\Downloads\2\Picture\ok.html.jpg" type="image/x-icon">    
-<title>Employment Contract</title>
+<link rel="stylesheet" href="logo.html/logo.png.jpg">
+<title>SIdol.Contract</title>
 
 <style>
     body {
@@ -13,7 +14,6 @@
         background: #000;
         color: #fff;
         font-family: Arial, Helvetica, sans-serif;
-        line-height: 1.6;
     }
 
     .container {
@@ -30,19 +30,15 @@
         margin: 0 auto 40px auto;
         width: 180px;
         height: auto;
-        filter: drop-shadow(0 0 10px rgba(255,255,255,0.4));
+        filter: drop-shadow(0px 0px 10px rgba(255,255,255,0.4));
     }
 
-    h1 { text-align: center; font-size: 32px; margin-bottom: 20px; letter-spacing: 1px; }
-
-    h2 {
-        margin-top: 30px;
-        color: #ccc;
-        border-bottom: 1px solid #444;
-        padding-bottom: 5px;
+    h1 {
+        text-align: center;
+        font-size: 32px;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
     }
-
-    .signature-section { margin-top: 40px; padding-top: 20px; border-top: 1px solid #444; }
 
     .fill-section {
         margin-bottom: 30px;
@@ -70,7 +66,9 @@
         cursor: pointer;
     }
 
-    button:hover { background: #666; }
+    button:hover {
+        background: #666;
+    }
 
     #resultsBox {
         display: none;
@@ -81,27 +79,33 @@
         white-space: pre-wrap;
     }
 
-    #copyBtn { margin-top: 15px; background: #555; }
+    #copyBtn {
+        margin-top: 15px;
+        background: #555;
+    }
 </style>
-
 </head>
+
 <body>
+
 <div class="container">
 
-    <!-- FIX THIS PATH -->
-    <img src="logo.jpg" alt="Company Logo" class="logo">
+    <!-- FIXED LOGO PATH -->
+    <img src="logo.html/logo.png.jpg" alt="Company Logo" class="logo">
 
     <h1>Employment Contract</h1>
 
+    <!-- Form -->
     <div class="fill-section">
+
         <label><b>Employee (Party B) Name:</b></label><br>
         <input id="empName" type="text" placeholder="Enter employee name"><br><br>
 
         <label><b>Employee Position:</b></label><br>
         <input id="empPosition" type="text" placeholder="Enter employee position"><br><br>
 
-        <label><b>Employee Monthly Salary (USD):</b></label><br>
-        <input id="empSalary" type="text" placeholder="Enter monthly salary"><br><br>
+        <label><b>Employee Salary (USD):</b></label><br>
+        <input id="empSalary" type="text" placeholder="Enter salary"><br><br>
 
         <label><b>Employer Signature Date:</b></label><br>
         <input id="empDateA" type="date"><br><br>
@@ -115,15 +119,28 @@
     <p><b>Employer (Party A):</b> Schroder Quantitative Technology Co., Ltd.</p>
     <p><b>Employee (Party B):</b> <span id="outName">________________________________________</span></p>
 
-    <p><b>Position:</b> <span id="outPosition">____________________________________________</span></p>
+    <p><b>Position:</b> <span id="outPosition">________________________________________</span></p>
+    <p><b>Salary:</b> <span id="outSalary">__________________</span></p>
 
-    <p><b>Contract Term:</b>
-        <span id="outContractTerm"> From ___ ____ _____ to ____ ______ _____ </span>
-    </p>
+    <h2>1. Job Responsibilities</h2>
+    <ol>
+        <li>Promote company products and services.</li>
+        <li>Invite and attract new users or clients.</li>
+        <li>Participate in marketing campaigns.</li>
+        <li>Provide timely updates and reports.</li>
+        <li>Follow company guidelines and policies.</li>
+    </ol>
+
+    <h2>2. Working Hours and Attendance</h2>
+    <ol>
+        <li>Follow company working hour standards.</li>
+        <li>Ensure attendance and task completion.</li>
+        <li>Adjustments allowed by mutual agreement.</li>
+    </ol>
 
     <h2>3. Compensation</h2>
     <ol>
-        <li>Monthly Salary: USD <span id="outSalary">___________</span></li>
+        <li>Monthly Salary: USD <span id="outSalary2">_____________</span></li>
         <li>Paid monthly to Party B's bank account.</li>
         <li>Bonuses or commissions based on company policy.</li>
     </ol>
@@ -132,11 +149,11 @@
         <p><b>Employer (Party A) Signature:</b> ____________________________</p>
         <p>Date: <span id="outDateA">____ / ____ / ______</span></p>
 
-        <p><b>Employee (Party B) Signature:</b>
-            <span id="outSigName">______________________________</span></p>
+        <p><b>Employee (Party B) Signature:</b> <span id="outSigName">______________________________</span></p>
         <p>Date: <span id="outDateB">____ / ____ / ______</span></p>
     </div>
 
+    <!-- Results -->
     <div id="resultsBox"></div>
     <button id="copyBtn" style="display:none;" onclick="copyResults()">Copy Completed Contract</button>
 
@@ -150,35 +167,46 @@ function fillContract() {
     const dateA = document.getElementById("empDateA").value;
     const dateB = document.getElementById("empDateB").value;
 
+    // Insert into contract
     document.getElementById("outName").innerText = name || "________________________________________";
     document.getElementById("outSigName").innerText = name || "______________________________";
-
-    document.getElementById("outPosition").innerText = position || "____________________________________________";
-    document.getElementById("outSalary").innerText = salary || "___________";
-
+    document.getElementById("outPosition").innerText = position || "________________________________________";
+    document.getElementById("outSalary").innerText = salary || "__________________";
+    document.getElementById("outSalary2").innerText = salary || "_____________";
     document.getElementById("outDateA").innerText = dateA || "____ / ____ / ______";
     document.getElementById("outDateB").innerText = dateB || "____ / ____ / ______";
 
-    let filledText =
+    // Results box
+    let filledText = 
 `Employment Contract
 
-Employee Name: ${name || "N/A"}
-Position: ${position || "N/A"}
-Salary: USD ${salary || "N/A"}
+Employee Name: ${name}
+Position: ${position}
+Salary: USD ${salary}
 
-Employer Signature Date: ${dateA || "N/A"}
-Employee Signature Date: ${dateB || "N/A"}`;
+Employer Signature Date: ${dateA}
+Employee Signature Date: ${dateB}`;
 
-    document.getElementById("resultsBox").style.display = "block";
     document.getElementById("resultsBox").innerText = filledText;
-
+    document.getElementById("resultsBox").style.display = "block";
     document.getElementById("copyBtn").style.display = "inline-block";
+
+    // WhatsApp message
+    let message =
+        "Contract Filled:\n" +
+        "Name: " + name + "\n" +
+        "Position: " + position + "\n" +
+        "Salary: USD " + salary + "\n" +
+        "Employer Date: " + dateA + "\n" +
+        "Employee Date: " + dateB;
+
+    let waURL = "https://wa.me/447518001664?text=" + encodeURIComponent(message);
+    window.open(waURL, "_blank");
 }
 
 function copyResults() {
-    const text = document.getElementById("resultsBox").innerText;
-    navigator.clipboard.writeText(text);
-    alert("Completed contract copied!");
+    navigator.clipboard.writeText(document.getElementById("resultsBox").innerText);
+    alert("Contract copied!");
 }
 </script>
 
