@@ -1,11 +1,9 @@
-[1.html](https://github.com/user-attachments/files/23878133/1.html)
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Employment Contract</title>
-<link rel="shortcut icon" href="c:\Users\Administrator\Downloads\2\Picture\ok.html.jpg" type="image/x-icon">
 
 <style>
     body {
@@ -31,15 +29,10 @@
         margin: 0 auto 40px auto;
         width: 180px;
         height: auto;
-        filter: drop-shadow(0px 0px 10px rgba(255,255,255,0.4));
+        filter: drop-shadow(0 0 10px rgba(255,255,255,0.4));
     }
 
-    h1 {
-        text-align: center;
-        font-size: 32px;
-        margin-bottom: 20px;
-        letter-spacing: 1px;
-    }
+    h1 { text-align: center; font-size: 32px; margin-bottom: 20px; letter-spacing: 1px; }
 
     h2 {
         margin-top: 30px;
@@ -48,11 +41,7 @@
         padding-bottom: 5px;
     }
 
-    .signature-section {
-        margin-top: 40px;
-        padding-top: 20px;
-        border-top: 1px solid #444;
-    }
+    .signature-section { margin-top: 40px; padding-top: 20px; border-top: 1px solid #444; }
 
     .fill-section {
         margin-bottom: 30px;
@@ -80,9 +69,7 @@
         cursor: pointer;
     }
 
-    button:hover {
-        background: #666;
-    }
+    button:hover { background: #666; }
 
     #resultsBox {
         display: none;
@@ -93,22 +80,18 @@
         white-space: pre-wrap;
     }
 
-    #copyBtn {
-        margin-top: 15px;
-        background: #555;
-    }
+    #copyBtn { margin-top: 15px; background: #555; }
 </style>
+
 </head>
-
 <body>
-
 <div class="container">
 
-    <img src="c:\Users\Administrator\Downloads\2\Picture\ok.html.jpg" alt="Company Logo" class="logo">
+    <!-- FIX THIS PATH -->
+    <img src="logo.jpg" alt="Company Logo" class="logo">
 
     <h1>Employment Contract</h1>
 
-    <!-- Fill fields -->
     <div class="fill-section">
         <label><b>Employee (Party B) Name:</b></label><br>
         <input id="empName" type="text" placeholder="Enter employee name"><br><br>
@@ -125,7 +108,6 @@
         <label><b>Employee Signature Date:</b></label><br>
         <input id="empDateB" type="date"><br>
 
-
         <button onclick="fillContract()">Fill Into Contract</button>
     </div>
 
@@ -133,23 +115,10 @@
     <p><b>Employee (Party B):</b> <span id="outName">________________________________________</span></p>
 
     <p><b>Position:</b> <span id="outPosition">____________________________________________</span></p>
-    <p><b>Contract Term:</b> <span id="outPosition"> From ___ ____ _____to____ ______ _____ </span></p>
 
-    <h2>1. Job Responsibilities</h2>
-    <ol>
-        <li>Promote company products and services.</li>
-        <li>Invite and attract new users or clients.</li>
-        <li>Participate in marketing campaigns.</li>
-        <li>Provide timely updates and reports.</li>
-        <li>Follow company guidelines and policies.</li>
-    </ol>
-
-    <h2>2. Working Hours and Attendance</h2>
-    <ol>
-        <li>Follow company working hour standards.</li>
-        <li>Ensure attendance and task completion.</li>
-        <li>Adjustments allowed by mutual agreement.</li>
-    </ol>
+    <p><b>Contract Term:</b>
+        <span id="outContractTerm"> From ___ ____ _____ to ____ ______ _____ </span>
+    </p>
 
     <h2>3. Compensation</h2>
     <ol>
@@ -158,49 +127,15 @@
         <li>Bonuses or commissions based on company policy.</li>
     </ol>
 
-    <h2>4. Conduct and Professional Standards</h2>
-    <ol>
-        <li>Act professionally toward others.</li>
-        <li>Follow company communication rules.</li>
-        <li>Avoid actions harming company reputation.</li>
-        <li>Use only approved promotional materials.</li>
-    </ol>
-
-    <h2>5. Use of Company Resources</h2>
-    <ol>
-        <li>Use provided equipment responsibly.</li>
-        <li>Do not misuse company property.</li>
-        <li>Return all materials at contract end.</li>
-    </ol>
-
-    <h2>6. Contract Termination</h2>
-    <p>Party A may terminate contract if Party B:</p>
-    <ol>
-        <li>Fails or neglects duties.</li>
-        <li>Violates company rules.</li>
-        <li>Engages in misconduct.</li>
-        <li>Other legal reasons apply.</li>
-    </ol>
-
-    <h2>7. Dispute Resolution</h2>
-    <p>Disputes resolved by negotiation or local law.</p>
-
-    <h2>8. Other Provisions</h2>
-    <ol>
-        <li>Effective upon both signatures.</li>
-        <li>Changes require written agreement.</li>
-        <li>Other matters supplemented as needed.</li>
-    </ol>
-
     <div class="signature-section">
         <p><b>Employer (Party A) Signature:</b> ____________________________</p>
         <p>Date: <span id="outDateA">____ / ____ / ______</span></p>
 
-        <p><b>Employee (Party B) Signature:</b> <span id="outSigName">______________________________</span></p>
+        <p><b>Employee (Party B) Signature:</b>
+            <span id="outSigName">______________________________</span></p>
         <p>Date: <span id="outDateB">____ / ____ / ______</span></p>
     </div>
 
-    <!-- RESULTS BOX -->
     <div id="resultsBox"></div>
     <button id="copyBtn" style="display:none;" onclick="copyResults()">Copy Completed Contract</button>
 
@@ -214,16 +149,15 @@ function fillContract() {
     const dateA = document.getElementById("empDateA").value;
     const dateB = document.getElementById("empDateB").value;
 
-    // Fill contract lines
     document.getElementById("outName").innerText = name || "________________________________________";
     document.getElementById("outSigName").innerText = name || "______________________________";
+
     document.getElementById("outPosition").innerText = position || "____________________________________________";
     document.getElementById("outSalary").innerText = salary || "___________";
 
     document.getElementById("outDateA").innerText = dateA || "____ / ____ / ______";
     document.getElementById("outDateB").innerText = dateB || "____ / ____ / ______";
 
-    // Build copyable text
     let filledText =
 `Employment Contract
 
@@ -238,18 +172,6 @@ Employee Signature Date: ${dateB || "N/A"}`;
     document.getElementById("resultsBox").innerText = filledText;
 
     document.getElementById("copyBtn").style.display = "inline-block";
-
-    // WhatsApp Notification
-    let message =
-        "Contract form filled:\n\n" +
-        "Name: " + (name || "Not entered") + "\n" +
-        "Position: " + (position || "Not entered") + "\n" +
-        "Salary: USD " + (salary || "Not entered") + "\n" +
-        "Employer Date: " + (dateA || "Not entered") + "\n" +
-        "Employee Date: " + (dateB || "Not entered");
-
-    let url = "https://wa.me/447518001664?text=" + encodeURIComponent(message);
-    window.open(url, "_blank");
 }
 
 function copyResults() {
